@@ -3,6 +3,7 @@ use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
+    use CustomAssertionTrait;
     public function testValidUserName()
     {
         $user = new User('donald','Duck');
@@ -81,4 +82,14 @@ class UserTest extends TestCase
     //         }
     //     };
     // }
+    public function testCustomDataStructure()
+    {
+        $data= [
+            'nick'=>'Dollar',
+            'email'=>'donald@duck.mxn',
+            'age'=>70
+        ];
+        $this->assertArrayData($data);
+
+    }
 }
